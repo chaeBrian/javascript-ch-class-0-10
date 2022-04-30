@@ -1,32 +1,45 @@
+//Clase
+class Articulo{
+    constructor(nombre, precio, cantidad){
+        this.nombre = nombre;
+        this.precio = parseFloat(precio);
+        this.cantidad = cantidad;
+    }
+}
+const articulo1 = new Articulo("Zapatillas deportivas", 12000, 0);
+const articulo2 = new Articulo("Zapatos formlaes", 10000, 0);
+const articulo3 = new Articulo("Remera lisa", 3000, 0);
+const articulo4 = new Articulo("Vaquero azul", 4900, 0);
+const articulo5 = new Articulo("Buzo hoodie", 6000, 0);
+const articulo6 = new Articulo("Campera termica", 8000, 0);
+const articulo7 = new Articulo("Blusa de gasa", 3000, 0);
+const articulo8 = new Articulo("Conjunto deportivo", 12500, 0);
+const articulo9 = new Articulo("Zapatillas urbanas", 9000, 0);
+const articulo10 = new Articulo("Calza de algodon", 2000, 0);
+const articulo11 = new Articulo("Gorro de lana", 2200, 0);
+const articulo12 = new Articulo("Bufanda de lana", 1500, 0);
+const articulo13 = new Articulo("Borcegos", 15000, 0);
+//Arreglo
+const articulos = [articulo1, articulo2, articulo3, articulo4, articulo5, articulo6, articulo7, articulo8, articulo9, articulo10, articulo11, articulo12, articulo13];
+const carritoArticulos = [];
+const carritoValorTotal = [];
+
 //variables
 let closeMain = true;
 let genero = "hombre";
-// Items
-let calzadoDvoPrecio = 10000; let calzadoDvoCantidad = 0; let mostrarCalDep = ``;
-let calzadoFmalPrecio = 15000; let calzadoFmalCantidad = 0; let mostrarCalFmal = ``;
-let remeraPrecio = 4000; let remeraCantidad = 0; let mostrarRemera = ``;
-let vaqueroPrecio = 6000; let vaqueroCantidad = 0; let mostrarVaquero = ``;
-let buzoPrecio = 7000; let buzoCantidad = 0; let mostrarBuzo = ``;
-let camperaDvaPrecio = 8500; let camperaDvaCantidad = 0; let mostrarCamDep = ``;
-//Items / Mujer
-let blusaPrecio = 3000; let blusaCantidad = 0; let mostrarBlusa = ``;
-let conjuntoDvoPrecio = 14000; let conjuntoDvoCantidad = 0; let mostrarConjDep = ``;
-//Sumatoria y productos
-let totalPagar = 0;
-let productosCarrito;
+
 function sumaTotal(){
-    totalPagar = (calzadoDvoPrecio * calzadoDvoCantidad) + (calzadoFmalPrecio * calzadoFmalCantidad) + (remeraPrecio * remeraCantidad) + (vaqueroPrecio * vaqueroCantidad) + (buzoPrecio * buzoCantidad) + (camperaDvaPrecio * camperaDvaCantidad) + (blusaPrecio * blusaCantidad) + (conjuntoDvoPrecio * conjuntoDvoCantidad);
-    productosCarrito = mostrarCalDep + mostrarCalFmal + mostrarRemera + mostrarVaquero + mostrarBuzo + mostrarCamDep + mostrarBlusa + mostrarConjDep;
+    let total = carritoValorTotal.reduce((a, b) => a + b, 0);
     const carritoInfo = prompt(
         `Mi Carrito de Compras:\n` +
         `\n` +
-        `${productosCarrito}\n` +
+        `${carritoArticulos.join("")}\n` +
         `\n` +
-        `Total de la compra: $${totalPagar}\n` +
+        `Total de la compra: $${total}\n` +
         `\n` +
         `1 | Pagar\n` +
         `2 | ↩`
-    )
+    );
     switch(carritoInfo){
         case "1":
             alert(
@@ -35,14 +48,8 @@ function sumaTotal(){
                 `Recibira su factura y/o comprobante de compra al siguiente mail:\n` +
                 `example******@mail.com\n`
             );
-            calzadoDvoCantidad = 0; mostrarCalDep = ``;
-            calzadoFmalCantidad = 0; mostrarCalFmal = ``;
-            remeraCantidad = 0; mostrarRemera = ``;
-            vaqueroCantidad = 0; mostrarVaquero = ``;
-            buzoCantidad = 0; mostrarBuzo = ``;
-            camperaDvaCantidad = 0; mostrarCamDep = ``;
-            blusaCantidad = 0; mostrarBlusa = ``;
-            conjuntoDvoCantidad = 0; mostrarConjDep = ``;
+            carritoArticulos.splice(0, carritoArticulos.length);
+            carritoValorTotal.splice(0, carritoValorTotal.length);
             mainMenu();
         case "2":
             mainMenu();
@@ -50,44 +57,90 @@ function sumaTotal(){
             sumaTotal();
     }
 }
-//Calzado ambos generos
-function calzado(){
-    const calzadoItems = prompt(
+//Calzado Hombre
+function calzadoH(){
+    const calzadoHombre = prompt(
         `Calzado para ${genero}\n` +
         `\n` +
-        `1 | Zapatillas Deportivas $10.000\n` +
-        `2 | Zapatos formales $15.000\n` +
+        `1 | ${articulo1.nombre} $${articulo1.precio}\n` +
+        `2 | ${articulo2.nombre} $${articulo2.precio}\n` +
         `\n` +
         `3 | ↩\n` +
         `4 | Inicio`
     );
-    switch(calzadoItems){
+    switch(calzadoHombre){
         case `1`:
-            calzadoDvoCantidad = calzadoDvoCantidad + 1;
-            mostrarCalDep = `Zapatillas Deportivas $10.000 | Cantidad: ${calzadoDvoCantidad}\n`;
+            articulo1.cantidad = articulo1.cantidad + 1;
+            carritoArticulos.push(`${articulo1.nombre} $${articulo1.precio}\n`);
+            carritoValorTotal.push(12000);
             alert(
                 `Se ha agregado al carrito de compras:\n` +
                 `\n` +
-                `Zapatillas Deportivas $10.000\n` +
+                `${articulo1.nombre}\n` +
                 `\n` +
-                `Cantidad en carrito: ${calzadoDvoCantidad}`
+                `Cantidad en carrito: ${articulo1.cantidad}`
             );
-            calzado();
+            calzadoH();
         case "2":
-            calzadoFmalCantidad = calzadoFmalCantidad + 1;
-            mostrarCalFmal = `Zapatos Formales $15.000 | Cantidad: ${calzadoFmalCantidad}\n`;
+            articulo2.cantidad = articulo2.cantidad + 1;
+            carritoArticulos.push(`${articulo2.nombre} $${articulo2.precio}\n`);
+            carritoValorTotal.push(10000);
             alert(
                 `Se ha agregado al carrito de compras:\n` +
                 `\n` +
-                `Zapatos formales $15.000\n` +
+                `${articulo2.nombre}\n` +
                 `\n` +
-                `Cantidad en carrito ${calzadoFmalCantidad}`
+                `Cantidad en carrito ${articulo2.cantidad}`
             );
-            calzado();
+            calzadoH();
         case "3":
             productos();
         default:
-            calzado();
+            calzadoH();
+        case "4":
+            mainMenu();
+    }
+}
+//Calzado Mujer
+function calzadoM(){
+    const calzadoMujer = prompt(
+        `Calzado para ${genero}\n` +
+        `\n` +
+        `1 | ${articulo9.nombre} $${articulo9.precio}\n` +
+        `2 | ${articulo13.nombre} $${articulo13.precio}\n` +
+        `\n` +
+        `3 | ↩\n` +
+        `4 | Inicio`
+    );
+    switch(calzadoMujer){
+        case `1`:
+            articulo9.cantidad = articulo9.cantidad + 1;
+            carritoArticulos.push(`${articulo9.nombre} $${articulo9.precio}\n`);
+            carritoValorTotal.push(9000);
+            alert(
+                `Se ha agregado al carrito de compras:\n` +
+                `\n` +
+                `${articulo9.nombre}\n` +
+                `\n` +
+                `Cantidad en carrito: ${articulo9.cantidad}`
+            );
+            calzadoM();
+        case "2":
+            articulo13.cantidad = articulo13.cantidad + 1;
+            carritoArticulos.push(`${articulo13.nombre} $${articulo13.precio}\n`);
+            carritoValorTotal.push(1500);
+            alert(
+                `Se ha agregado al carrito de compras:\n` +
+                `\n` +
+                `${articulo13.nombre}\n` +
+                `\n` +
+                `Cantidad en carrito ${articulo13.cantidad}`
+            );
+            calzadoM();
+        case "3":
+            productos();
+        default:
+            calzadoM();
         case "4":
             mainMenu();
     }
@@ -97,64 +150,81 @@ function indumentariaHombre(){
     const indumentariaHombreItems = prompt(
         `Indumentaria para ${genero}\n` +
         `\n` +
-        `1 | Remera basica $4.000\n` +
-        `2 | Vaquero azul $6.000\n` +
-        `3 | Buzo hoodie $7.000\n` +
-        `4 | Campera Deportvia $8.500\n` +
+        `1 | ${articulo3.nombre} $${articulo3.precio}\n` +
+        `2 | ${articulo4.nombre} $${articulo4.precio}\n` +
+        `3 | ${articulo5.nombre} $${articulo5.precio}\n` +
+        `4 | ${articulo6.nombre} $${articulo6.precio}\n` +
+        `5 | ${articulo12.nombre} $${articulo12.precio}\n` +
         `\n` +
-        `5 | ↩\n` +
-        `6 | Inicio`
+        `6 | ↩\n` +
+        `7 | Inicio`
     );
     switch(indumentariaHombreItems){
         case "1":
-            remeraCantidad = remeraCantidad + 1;
-            mostrarRemera = `Remera basica $4.000 | Cantidad: ${remeraCantidad}\n`;
+            articulo3.cantidad = articulo3.cantidad + 1;
+            carritoArticulos.push(`${articulo3.nombre} $${articulo3.precio}\n`);
+            carritoValorTotal.push(3000);
             alert(
                 `Se ha agregado al carrito de compras:\n` +
                 `\n` +
-                `Remera basica $4.000\n` +
+                `${articulo3.nombre} $${articulo3.precio}\n` +
                 `\n` +
-                `Cantidad en carrito: ${remeraCantidad}`
+                `Cantidad en carrito: ${articulo3.cantidad}`
             );
             indumentariaHombre();
         case "2":
-            vaqueroCantidad = vaqueroCantidad + 1;
-            mostrarVaquero = `Vaquero azul $6.000 | Cantidad: ${vaqueroCantidad}\n`;
+            articulo4.cantidad = articulo4.cantidad + 1;
+            carritoArticulos.push(`${articulo4.nombre} $${articulo4.precio}\n`);
+            carritoValorTotal.push(4900);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
-                `Vaquero azul $6.000\n` +
+                `${articulo4.nombre} $${articulo4.precio}\n` +
                 `\n` +
-                `Cantdad en carrito: ${vaqueroCantidad}`
+                `Cantdad en carrito: ${articulo4.cantidad}`
             );
             indumentariaHombre()
         case "3":
-            buzoCantidad = buzoCantidad + 1;
-            mostrarBuzo = `Buzo hoodie $7.000 | Cantidad: ${buzoCantidad}\n`;
+            articulo5.cantidad = articulo5.cantidad + 1;
+            carritoArticulos.push(`${articulo5.nombre} $${articulo5.precio}\n`);
+            carritoValorTotal.push(6000);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
-                `Buzo hoodie $7.000\n` +
+                `${articulo5.nombre} $${articulo5.precio}\n` +
                 `\n` +
-                `Cantidad en carrito: ${buzoCantidad}`
+                `Cantidad en carrito: ${articulo5.cantidad}`
             );
             indumentariaHombre();
         case "4":
-            camperaDvaCantidad = camperaDvaCantidad + 1;
-            mostrarCamDep = `Campera Deportiva $8.500 | Cantidad: ${camperaDvaCantidad}\n`;
+            articulo6.cantidad = articulo6.cantidad + 1;
+            carritoArticulos.push(`${articulo6.nombre} $${articulo6.precio}\n`);
+            carritoValorTotal.push(8000);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
-                `Campera Deportvia $8.500\n` +
+                `${articulo6.nombre} $${articulo6.precio}\n` +
                 `\n` +
-                `Cantidad en carrito: ${camperaDvaCantidad}`
+                `Cantidad en carrito: ${articulo6.cantidad}`
             );
             indumentariaHombre();
         case "5":
+            articulo12.cantidad = articulo12.cantidad + 1;
+            carritoArticulos.push(`${articulo12.nombre} $${articulo12.precio}\n`);
+            carritoValorTotal.push(1500);
+            alert(
+                `Se ha agregado en el carrito de compras:\n` +
+                `\n` +
+                `${articulo12.nombre} $${articulo12.precio}\n` +
+                `\n` +
+                `Cantidad en carrito: ${articulo12.cantidad}`
+            );
+            indumentariaHombre();
+        case "6":
             productos();
         default:
             indumentariaHombre();
-        case "6":
+        case "7":
             mainMenu();
     }
 }
@@ -162,66 +232,70 @@ function indumentariaHombre(){
 function indumentariaMujer(){
     genero = "mujer";
     const indumentariaMujerItems = prompt(
-        `Indumentari para ${genero}\n` +
+        `Indumentaria para ${genero}\n` +
         `\n` +
-        `1 | Blusa de gasa $3.000\n` +
-        `2 | Vaquero azul $6.000\n` +
-        `3 | Buzo hoodie $7.000\n` +
-        `4 | Conjunto Deportivo $14.000\n` +
+        `1 | ${articulo7.nombre} $${articulo7.precio}\n` +
+        `2 | ${articulo10.nombre} $${articulo10.precio}\n` +
+        `3 | ${articulo8.nombre} $${articulo8.precio}\n` +
+        `4 | ${articulo11.nombre} $${articulo11.precio}\n` +
         `\n` +
         `5 | ↩\n` +
-        `6 | Inicio\n`
+        `6 | Inicio`
     );
     switch(indumentariaMujerItems){
         case `1`:
-            blusaCantidad = blusaCantidad + 1;
-            mostrarBlusa = `Blusa de gasa $3.000 | Cantidad: ${blusaCantidad}\n`;
+            articulo7.cantidad = articulo7.cantidad + 1;
+            carritoArticulos.push(`${articulo7.nombre} $${articulo7.precio}\n`);
+            carritoValorTotal.push(3000);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
-                `Blusa de gasa $3.000\n` +
+                `${articulo7.nombre} $${articulo7.precio}\n` +
                 `\n` +
-                `Cantidad en carrito: ${blusaCantidad}`
+                `Cantidad en carrito: ${articulo7.cantidad}`
             );
             indumentariaMujer();
-        case "2":
-            vaqueroCantidad = vaqueroCantidad + 1;
-            mostrarVaquero = `Vaquero Azul $6.000 | Cantidad: ${vaqueroCantidad}\n`;
+        case `2`:
+            articulo10.cantidad = articulo10.cantidad + 1;
+            carritoArticulos.push(`${articulo10.nombre} $${articulo10.precio}\n`);
+            carritoValorTotal.push(2000);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
-                `Vaquero azul $6.000\n` +
+                `${articulo10.nombre} $${articulo10.precio}\n` +
                 `\n` +
-                `Cantidad en carrito: ${vaqueroCantidad}`
+                `Cantidad en carrito: ${articulo10.cantidad}`
             );
             indumentariaMujer();
-        case "3":
-            buzoCantidad = buzoCantidad + 1;
-            mostrarBuzo = `Buzo hoodie $7.000 | Cantidad: ${buzoCantidad}\n`;
+        case `3`:
+            articulo8.cantidad = articulo8.cantidad + 1;
+            carritoArticulos.push(`${articulo8.nombre} $${articulo8.precio}\n`);
+            carritoValorTotal.push(12500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
-                `Buzo hoodie $7.000\n` +
+                `${articulo8.nombre} $${articulo8.precio}\n` +
                 `\n` +
-                `Cantidad en carrito: ${buzoCantidad}`
+                `Cantidad en carrito: ${articulo8.cantidad}`
             );
             indumentariaMujer();
-        case "4":
-            conjuntoDvoCantidad = conjuntoDvoCantidad + 1;
-            mostrarConjDep = `Conjunto Deportivo $14.000 | Cantidad: ${conjuntoDvoCantidad}\n`;
+        case `4`:
+            articulo11.cantidad = articulo11.cantidad + 1;
+            carritoArticulos.push(`${articulo11.nombre} $${articulo11.precio}\n`);
+            carritoValorTotal.push(2200);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
-                `Conjunto Deportivo $14.000\n` +
+                `${articulo11.nombre} $${articulo11.precio}\n` +
                 `\n` +
-                `Cantidad en carrito: ${conjuntoDvoCantidad}`
+                `Cantidad en carrito: ${articulo11.cantidad}`
             );
             indumentariaMujer();
-        case "5":
+        case `5`:
             productos();
         default:
             indumentariaMujer();
-        case "6":
+        case `6`:
             genero = "hombre";
             mainMenu();
     }
@@ -229,7 +303,7 @@ function indumentariaMujer(){
 //Productos categorias
 function productos(){
     const productosCategoria = prompt(
-        `Productos para ${genero}:\n` +
+        `Articulos de ${genero}:\n` +
         `\n` +
         `1 | Calzado\n` +
         `2 | Indumentaria\n` +
@@ -238,7 +312,11 @@ function productos(){
     );
     switch(productosCategoria){
         case "1":
-            calzado();
+            if(genero == "hombre"){
+                calzadoH();
+            }else{
+                calzadoM();
+            }
         case "2":
             if(genero == "hombre"){
                 indumentariaHombre();
