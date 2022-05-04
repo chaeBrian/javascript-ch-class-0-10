@@ -197,7 +197,7 @@ function indumentariaHombre(){
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
-                `${articulo4.nombre} $${art4.precio}\n` +
+                `${art4.nombre} $${art4.precio}\n` +
                 `\n` +
                 `Cantdad en carrito: ${art4.cantidad}`
             );
