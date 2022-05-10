@@ -1,5 +1,7 @@
-//Clase
-class Articulo{
+
+//Lista de articulos en venta...................................................................
+
+/* class Articulo{
     constructor(conjunto, nombre, precio, cantidad){
         this.conjunto = conjunto;
         this.nombre = nombre;
@@ -27,19 +29,21 @@ const art17 = new Articulo( "remera", "musculosa blanca", 2100, 0);
 const art18 = new Articulo( "pantalon", "pantalon cargo", 5000, 0);
 const art19 = new Articulo( "campera abrigo", "campera de cuero", 20000, 0);
 const art20 = new Articulo( "buzo abrigo", "buzo negro", 5000, 0);
+ */
+//................................................................................................
 
-//Arreglos
-const articulos = [art1, art2, art3, art4, art5, art6, art7, art8, art9, art10, art11, art12, art13, art14, art15, art16, art17, art18, art19, art20];
+//Arreglo de los articulos:
+/* const articulos = [art1, art2, art3, art4, art5, art6, art7, art8, art9, art10, art11, art12, art13, art14, art15, art16, art17, art18, art19, art20];
+//Arrglo de articulos que se agregan al carrito de compra.
 const carritoArticulos = [];
-const carritoValorTotal = [];
-
-//variables
-let closeMain = true;
+//Arreglo de precios de los articulos que se arreglan al carrito de compra.
+const carritoPrecios = []; */
+//..
+/* let closeMain = true;
 let genero = "hombre";
-
-//Suma Total de los articulos agregados al carrito.
+//Suma del valor total de los articulos agregados al carrito.
 function sumaTotal(){
-    let total = carritoValorTotal.reduce((a, b) => a + b, 0);
+    let total = carritoPrecios.reduce((a, b) => a + b, 0);
     const carritoInfo = prompt(
         `Mi Carrito de Compras:\n` +
         `\n` +
@@ -59,17 +63,16 @@ function sumaTotal(){
                 `example******@mail.com\n`
             );
             carritoArticulos.splice(0, carritoArticulos.length);
-            carritoValorTotal.splice(0, carritoValorTotal.length);
+            carritoPrecios.splice(0, carritoPrecios.length);
             mainMenu();
         case "2":
             mainMenu();
         default:
             sumaTotal();
     }
-}
-
-//Calzado Hombre
-function calzadoH(){
+} */
+//Menu de calzados para Hombre.
+/* function calzadoH(){
     const calzadoHombre = prompt(
         `Calzado para ${genero}\n` +
         `\n` +
@@ -83,7 +86,7 @@ function calzadoH(){
         case `1`:
             art1.cantidad = art1.cantidad + 1;
             carritoArticulos.push(`${art1.nombre} $${art1.precio}\n`);
-            carritoValorTotal.push(12000);
+            carritoPrecios.push(12000);
             alert(
                 `Se ha agregado al carrito de compras:\n` +
                 `\n` +
@@ -95,7 +98,7 @@ function calzadoH(){
         case "2":
             art2.cantidad = art2.cantidad + 1;
             carritoArticulos.push(`${art2.nombre} $${art2.precio}\n`);
-            carritoValorTotal.push(10000);
+            carritoPrecios.push(10000);
             alert(
                 `Se ha agregado al carrito de compras:\n` +
                 `\n` +
@@ -111,9 +114,9 @@ function calzadoH(){
         case "4":
             mainMenu();
     }
-}
-//Calzado Mujer
-function calzadoM(){
+} */
+//Menu de calzados para Mujer.
+/* function calzadoM(){
     const calzadoMujer = prompt(
         `Calzado para ${genero}\n` +
         `\n` +
@@ -127,7 +130,7 @@ function calzadoM(){
         case `1`:
             art9.cantidad = art9.cantidad + 1;
             carritoArticulos.push(`${art9.nombre} $${art9.precio}\n`);
-            carritoValorTotal.push(9000);
+            carritoPrecios.push(9000);
             alert(
                 `Se ha agregado al carrito de compras:\n` +
                 `\n` +
@@ -139,7 +142,7 @@ function calzadoM(){
         case "2":
             art13.cantidad = art13.cantidad + 1;
             carritoArticulos.push(`${art13.nombre} $${art13.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado al carrito de compras:\n` +
                 `\n` +
@@ -155,9 +158,9 @@ function calzadoM(){
         case "4":
             mainMenu();
     }
-}
-//Indumentaria / Hombre
-function indumentariaHombre(){
+} */
+//Menu indumentaria para hombre.
+/* function indumentariaHombre(){
     const indumentariaHombreItems = prompt(
         `Indumentaria para ${genero}\n` +
         `\n` +
@@ -181,7 +184,7 @@ function indumentariaHombre(){
         case "1":
             art3.cantidad = art3.cantidad + 1;
             carritoArticulos.push(`${art3.nombre} $${art3.precio}\n`);
-            carritoValorTotal.push(3000);
+            carritoPrecios.push(3000);
             alert(
                 `Se ha agregado al carrito de compras:\n` +
                 `\n` +
@@ -193,7 +196,7 @@ function indumentariaHombre(){
         case "2":
             art4.cantidad = art4.cantidad + 1;
             carritoArticulos.push(`${art4.nombre} $${art4.precio}\n`);
-            carritoValorTotal.push(4900);
+            carritoPrecios.push(4900);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -205,7 +208,7 @@ function indumentariaHombre(){
         case "3":
             art5.cantidad = art5.cantidad + 1;
             carritoArticulos.push(`${art5.nombre} $${art5.precio}\n`);
-            carritoValorTotal.push(6000);
+            carritoPrecios.push(6000);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -217,7 +220,7 @@ function indumentariaHombre(){
         case "4":
             art6.cantidad = art6.cantidad + 1;
             carritoArticulos.push(`${art6.nombre} $${art6.precio}\n`);
-            carritoValorTotal.push(8000);
+            carritoPrecios.push(8000);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -229,7 +232,7 @@ function indumentariaHombre(){
         case "5":
             art12.cantidad = art12.cantidad + 1;
             carritoArticulos.push(`${art12.nombre} $${art12.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -241,7 +244,7 @@ function indumentariaHombre(){
         case "6":
             art14.cantidad = art14.cantidad + 1;
             carritoArticulos.push(`${art14.nombre} $${art14.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -253,7 +256,7 @@ function indumentariaHombre(){
         case "7":
             art15.cantidad = art15.cantidad + 1;
             carritoArticulos.push(`${art15.nombre} $${art15.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -265,7 +268,7 @@ function indumentariaHombre(){
         case "8":
             art17.cantidad = art17.cantidad + 1;
             carritoArticulos.push(`${art17.nombre} $${art17.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -277,7 +280,7 @@ function indumentariaHombre(){
         case "9":
             art17.cantidad = art17.cantidad + 1;
             carritoArticulos.push(`${art17.nombre} $${art17.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -289,7 +292,7 @@ function indumentariaHombre(){
         case "10":
             art18.cantidad = art18.cantidad + 1;
             carritoArticulos.push(`${art18.nombre} $${art18.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -301,7 +304,7 @@ function indumentariaHombre(){
         case "11":
             art19.cantidad = art19.cantidad + 1;
             carritoArticulos.push(`${art19.nombre} $${art19.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -313,7 +316,7 @@ function indumentariaHombre(){
         case "12":
             art20.cantidad = art20.cantidad + 1;
             carritoArticulos.push(`${art20.nombre} $${art20.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -329,9 +332,9 @@ function indumentariaHombre(){
         case "14":
             mainMenu();
     }
-}
-//Indumentaria / Mujer
-function indumentariaMujer(){
+} */
+//Menu indumentaria para mujer.
+/* function indumentariaMujer(){
     genero = "mujer";
     const indumentariaMujerItems = prompt(
         `Indumentaria para ${genero}\n` +
@@ -356,7 +359,7 @@ function indumentariaMujer(){
         case `1`:
             art7.cantidad = art7.cantidad + 1;
             carritoArticulos.push(`${art7.nombre} $${art7.precio}\n`);
-            carritoValorTotal.push(3000);
+            carritoPrecios.push(3000);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -368,7 +371,7 @@ function indumentariaMujer(){
         case `2`:
             art10.cantidad = art10.cantidad + 1;
             carritoArticulos.push(`${art10.nombre} $${art10.precio}\n`);
-            carritoValorTotal.push(2000);
+            carritoPrecios.push(2000);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -380,7 +383,7 @@ function indumentariaMujer(){
         case `3`:
             art8.cantidad = art8.cantidad + 1;
             carritoArticulos.push(`${art8.nombre} $${art8.precio}\n`);
-            carritoValorTotal.push(12500);
+            carritoPrecios.push(12500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -392,7 +395,7 @@ function indumentariaMujer(){
         case `4`:
             art6.cantidad = art6.cantidad + 1;
             carritoArticulos.push(`${art6.nombre} $${art6.precio}\n`);
-            carritoValorTotal.push(8000);
+            carritoPrecios.push(8000);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -404,7 +407,7 @@ function indumentariaMujer(){
         case "5":
             art12.cantidad = art12.cantidad + 1;
             carritoArticulos.push(`${art12.nombre} $${art12.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -416,7 +419,7 @@ function indumentariaMujer(){
         case "6":
             art14.cantidad = art14.cantidad + 1;
             carritoArticulos.push(`${art14.nombre} $${art14.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -428,7 +431,7 @@ function indumentariaMujer(){
         case "7":
             art15.cantidad = art15.cantidad + 1;
             carritoArticulos.push(`${art15.nombre} $${art15.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -440,7 +443,7 @@ function indumentariaMujer(){
         case "8":
             art17.cantidad = art17.cantidad + 1;
             carritoArticulos.push(`${art17.nombre} $${art17.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -452,7 +455,7 @@ function indumentariaMujer(){
         case "9":
             art17.cantidad = art17.cantidad + 1;
             carritoArticulos.push(`${art17.nombre} $${art17.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -464,7 +467,7 @@ function indumentariaMujer(){
         case "10":
             art18.cantidad = art18.cantidad + 1;
             carritoArticulos.push(`${art18.nombre} $${art18.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -476,7 +479,7 @@ function indumentariaMujer(){
         case "11":
             art19.cantidad = art19.cantidad + 1;
             carritoArticulos.push(`${art19.nombre} $${art19.precio}\n`);
-            carritoValorTotal.push(1500);
+            carritoPrecios.push(1500);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -488,7 +491,7 @@ function indumentariaMujer(){
         case "12":
             art11.cantidad = art11.cantidad + 1;
             carritoArticulos.push(`${art11.nombre} $${art11.precio}\n`);
-            carritoValorTotal.push(2200);
+            carritoPrecios.push(2200);
             alert(
                 `Se ha agregado en el carrito de compras:\n` +
                 `\n` +
@@ -505,9 +508,9 @@ function indumentariaMujer(){
             genero = "hombre";
             mainMenu();
     }
-}
-//Productos categorias
-function productos(){
+} */
+//Menu productos para hombre y mujer
+/* function productos(){
     const productosCategoria = prompt(
         `Articulos de ${genero}:\n` +
         `\n` +
@@ -534,10 +537,9 @@ function productos(){
         default:
             productos();
     }
-}
-
+} */
 //Menu principal de la tienda
-function mainMenu(){
+/* function mainMenu(){
     const userMenuPrincipal = prompt(
         `Tienda de indumentaria.\n` +
         `\n` +
@@ -565,9 +567,9 @@ function mainMenu(){
         case "5":
             sumaTotal();
     }
-}
+} */
 //Busqueda
-function busqueda(){
+/* function busqueda(){
     const userBusq = prompt(
         `Que estas buscando?\n` +
         `\n` +
@@ -587,10 +589,9 @@ function busqueda(){
     }else{
         busqueda();
     }
-}
-
+} */
 //Filtros
-function filtros(){
+/* function filtros(){
     const userFilter = prompt(
         `Filtrar articulos por:\n` +
         `\n` +
@@ -649,10 +650,8 @@ function filtros(){
         case "3":
             mainMenu();
     }
-}
-
-
+} */
 //Ejecucion
-while(closeMain){
+/* while(closeMain){
     mainMenu();
-}
+} */

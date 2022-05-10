@@ -6,9 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript - CoderHouse</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Brian Michel Ibañez <br> Comision: 30360</h1>
-    <script src="main.js"></script>
+    <input type="checkbox" id="btn-modal">
+    <label for="btn-modal" class="lbl-modal">mi Carrito</label>
+    <div class="modal">
+        <div class="modal__container">
+            <header>Mi carrito de compras</header>
+            <label for="btn-modal">⊗</label>
+            <div class="container---content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>league</th>
+                            <th>club</th>
+                            <th>amount</th>
+                            <th>price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="shopCatTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <ul id="plContainer"></ul>
+    <script src="/camiseta.js"></script>
 </body>
 </html>
