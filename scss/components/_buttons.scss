@@ -1,0 +1,185 @@
+/* MODAL----------- */
+body{
+    .modal{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        transition: all 500ms ease;
+        opacity: 0;
+        visibility: hidden;
+        .modal__container{
+            width: 600px;
+            height: 300px;
+            margin: auto;
+            box-shadow: 1px 1px 10px rgb(0, 0, 0);
+            transition: all 500ms ease;
+            position: relative;
+            h6{
+                font-size: medium;
+                padding: 10px;
+                right: 10px;
+                background-color: rgb(19, 19, 19);
+                color: white;
+            }
+            label{
+                position: absolute;
+                top: -3px;
+                right: 18px;
+                color: rgb(255, 38, 38);
+                font-size: 2em;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                &:hover{
+                    color: red;
+                    transition: all 0.5s ease;
+                }
+                border: none;
+            }
+            .container---content{
+                position: relative;
+                table{
+                    width: 100%;
+                    height: 260px;
+                    background-color: rgb(26, 26, 26);
+                    th{
+                        font-size: x-small;
+                        margin: 0 auto;
+                        background-color: rgb(26, 26, 26);
+                        color: white;
+                        padding-top: 0.5em;
+                    }
+                    td{
+                        font-size: smaller;
+                        text-align: center;
+                        background-color: rgb(29, 29, 29);
+                        color: rgb(222, 222, 222);
+                    }
+                }
+            }
+        }
+    }
+    #btn-modal{
+        display: none;
+    }
+    #btn-modal:checked ~ .modal{
+        opacity: 1;
+        visibility: visible;
+    }
+    .lbl-modal{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.854);
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover{
+            color: white;
+        }
+        &:active{
+            transition: none;
+        }
+    }
+    .jerseysMain{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: black;
+        .jerseysMain__filters{
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            color: white;
+            width: 20%;
+            background-color: rgb(0, 0, 0);
+            margin: 0 auto;
+            h5{
+                font-weight: lighter;
+                font-size: large;
+                padding: 1em 0.5em;
+                border-bottom: 1px solid white;
+            }
+            li{
+                padding: 0.5em 1.5em;
+                list-style: none;
+                span{
+                    font-size: small;
+                }
+            }
+        }
+        #jerseysContainer{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: 70%;
+            margin: auto;
+            padding: 0;
+            background-color: black;
+            li{
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                border: 1px solid rgb(211, 211, 211);
+                border-radius: 4px;
+                width: 170px;
+                margin: 1em 1em;
+                img{
+                    width: 170px;
+                    height: 185px;
+                }
+                h3{
+                    color: rgb(255, 255, 255);
+                    margin: 0px;
+                    text-align: left;
+                    padding: 0.5em 0.5em 0 0.5em;
+                    font-size: 0.9em;
+                    font-weight: lighter;
+                }
+                p{
+                    color: rgb(255, 255, 255);
+                    text-align: right;
+                    font-size: 0.8em;
+                    padding: 0px 0.5em;
+                    margin: 0px;
+                }
+                div{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    span{
+                        padding: 0.5em 0.5em;
+                        color: white;
+                        display: flex;
+                        align-items: center;
+                    }
+                    button{
+                        margin: 0.5em;
+                        border: none;
+                        border-radius: 3px;
+                        padding: 0.5em;
+                        background-color: black;
+                        transition: all 0.5s;
+                        border: 1px solid rgb(32, 32, 32);
+                        &:hover{
+                            transition: all 0.5s;
+                            cursor: pointer;
+                            border: 1px solid rgb(255, 255, 255);
+                        }
+                        &:active{
+                            background-color: rgb(255, 255, 255);
+                            transition: none;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+}

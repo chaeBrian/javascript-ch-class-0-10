@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript - CoderHouse</title>
-    <link rel="stylesheet" href="css/posting.css">
+    <title>Jerseys</title>
+    <link rel="stylesheet" href="../css/posting.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
@@ -13,9 +13,9 @@
 <body>
     <header class="indexHeader">
         <nav class="indexHeader__nav">
-            <a href="index.html"><h4>LOGO</h4></a>
+            <a href="../index.html"><h4>LOGO</h4></a>
             <ul>
-                <li><a href="pages/jerseys.html">Jerseys</a></li>
+                <li><a href="../pages/jerseys.html" id="botonJerseys">Jerseys</a></li>
                 <li><a href="#">Favorites</a></li>
                 <li><a href="#">My Acoount</a></li>
                 <input type="checkbox" id="btn-modal">
@@ -43,25 +43,16 @@
             </ul>
         </nav>
     </header>
-    <main class="indexMain">
-        <div class="indexMain__container" id="one-container"
-        style="background-image: url(images/home-images/nba-jerseys.webp); background-size: cover;">
-            <div class="indexMain__container--box">
-                <h6>NBA</h6>
-            </div>
-        </div>
-        <div  class="indexMain__container" id="two-container"
-        style="background-image: url(images/home-images/nfl-jerseys.jpg); background-size: cover;">
-            <div class="indexMain__container--box">
-                <h6>NFL</h6>
-            </div>
-        </div>
-        <div class="indexMain__container" id="three-container"
-        style="background-image: url(images/home-images/football-jerseys.jpg); background-size: cover;">
-            <div class="indexMain__container--box">
-                <h6>FOOTBALL</h6>
-            </div>
-        </div>
+    <main class="jerseysMain">
+        <ul class="jerseysMain__filters">
+            <h5>Leagues</h5>
+            <li><input type="checkbox"><span> All</span></li>
+            <li><input type="checkbox" id="botonFootball"><span> Football</span></li>
+            <li><input type="checkbox" id="botonNba"><span> NBA</span></li>
+            <li><input type="checkbox" id="botonNfl"><span> NFL</span></li>
+        </ul>
+        <ul id="jerseysContainer"></ul>
     </main>
+    <script src="../jerseys.js"></script>
 </body>
 </html>
